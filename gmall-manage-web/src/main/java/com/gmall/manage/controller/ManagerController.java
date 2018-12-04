@@ -1,10 +1,7 @@
 package com.gmall.manage.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.gmall.bean.BaseAttrInfo;
-import com.gmall.bean.BaseCatalog1;
-import com.gmall.bean.BaseCatalog2;
-import com.gmall.bean.BaseCatalog3;
+import com.gmall.bean.*;
 import com.gmall.service.ManageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,8 +69,14 @@ public class ManagerController {
     @ResponseBody
     public List<BaseAttrInfo>  attrInfoList (@RequestParam Map<String,String> map){
         String catalog3Id =   map.get("catalog3Id") ;
-        List<BaseAttrInfo> attrList = manageService.getAttrList(catalog3Id);
+        List<BaseAttrInfo> attrList = manageService.getAttrListByCatalog3Id(catalog3Id);
         return attrList;
+    }
+
+    @RequestMapping("baseSaleAttrList")
+    @ResponseBody
+    public List<BaseSaleAttr> getBaseSaleAttrList(){
+        return   manageService.getBaseSaleAttrList();
     }
 
 }

@@ -3,6 +3,7 @@ package com.gmall.manage.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.gmall.bean.BaseAttrInfo;
 import com.gmall.bean.BaseAttrValue;
+import com.gmall.bean.SkuInfo;
 import com.gmall.service.ManageService;
 
 import org.springframework.stereotype.Controller;
@@ -36,4 +37,13 @@ public class AttrManageController {
         manageService.delAttrInfo(attrInfoId);
         return "success";
     }
+
+    @RequestMapping(value = "saveSku",method = RequestMethod.POST)
+    @ResponseBody
+    public String saveSkuInfo(SkuInfo skuInfo){
+        manageService.saveSkuInfo(skuInfo);
+        return "success";
+    }
+
+
 }

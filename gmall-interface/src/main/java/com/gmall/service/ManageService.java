@@ -1,9 +1,6 @@
 package com.gmall.service;
 
-import com.gmall.bean.BaseAttrInfo;
-import com.gmall.bean.BaseCatalog1;
-import com.gmall.bean.BaseCatalog2;
-import com.gmall.bean.BaseCatalog3;
+import com.gmall.bean.*;
 
 import java.util.List;
 
@@ -22,4 +19,26 @@ public interface ManageService {
     BaseAttrInfo getAttrInfo(String attrId);
 
     void delAttrInfo(String attrInfoId);
+
+    List<SpuInfo> getSpuInfoList(SpuInfo spuInfo);
+
+    List<BaseSaleAttr> getBaseSaleAttrList();
+
+    void saveSpuInfo(SpuInfo spuInfo);
+
+    public void saveSkuInfo(SkuInfo skuInfo);
+
+    List<BaseAttrInfo> getAttrListByCatalog3Id(String catalog3Id);
+
+    List<SpuSaleAttr> getSpuSaleAttrList(String spuId);
+
+    List<SpuImage> getSpuImageList(String spuId);
+
+    SkuInfo getSkuInfo(String skuId);
+
+    List<SpuSaleAttr> selectSpuSaleAttrListCheckBySku(SkuInfo skuInfo);
+
+    public List<SkuSaleAttrValue> getSkuSaleAttrValueListBySpu(String spuId);
+
+    List<BaseAttrInfo> getAttrList(List<String> attrValueIdList);
 }
